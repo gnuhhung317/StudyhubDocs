@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  swagger-ui:
+    image: swaggerapi/swagger-ui
+    container_name: studyhub-swagger-ui
+    ports:
+      - "8088:8080"
+    volumes:
+      - ./spec/specs/1-build-a-real-time-collaborative-learning-platform-called-studyhub/contracts:/usr/share/nginx/html/specs
+    environment:
+      URLS: '[{"name": "Auth Service", "url": "/specs/auth-service.yml"}, {"name": "User Service", "url": "/specs/user-service.yml"}, {"name": "Chat Service", "url": "/specs/chat-service.yml"}, {"name": "Media Service", "url": "/specs/media-service.yml"}, {"name": "Realtime Service", "url": "/specs/realtime-service.yml"}, {"name": "AI Service", "url": "/specs/ai-service.yml"}, {"name": "Search Service", "url": "/specs/search-service.yml"}]'
